@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chelsea-IA Cyber-Bot V15.2 - Master Terminal</title>
+
+  <!-- Bootstrap 5 & Fuentes -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button class="cyber-btn-icon" id="toggle-sidebar" style="position:absolute; top:15px; left:15px; z-index:2000;"><i class="fas fa-bars"></i></button>
+
+<div class="cyber-container">
+  <!-- Menú Lateral -->
+  <aside class="cyber-sidebar collapsed" id="sidebar">
+    <div class="sidebar-header">
+      <h4><i class="fas fa-microchip"></i> CYBER-GRID</h4>
+      <button class="btn-close-sidebar cyber-btn-icon" id="close-sidebar"><i class="fas fa-times"></i></button>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" id="new-chat-btn"><i class="fas fa-plus"></i> Nueva Conexión</button>
+      <button class="nav-item" id="export-btn"><i class="fas fa-file-export"></i> Exportar Chat</button>
+      <button class="nav-item" id="toggle-audio-btn"><i class="fas fa-volume-up"></i> Voz IA: ON</button>
+      <div class="nav-divider" style="margin: 15px 0; border-bottom: 1px solid rgba(0,242,255,0.2);"></div>
+      <h6 class="nav-label" style="color:var(--text-dim); font-size:0.8rem;">HISTORIAL NEURAL</h6>
+      <div id="chat-history-list"></div>
+    </nav>
+  </aside>
+
+  <!-- Área Principal -->
+  <main class="cyber-main">
+    <header class="cyber-header">
+      <div class="header-left" style="margin-left: 40px;">
+        <h2>Chelsea-IA Cyber-Bot <span class="v-tag">V15.2</span></h2>
+        <div class="model-status">
+          <span class="status-dot" style="color: #00f2ff;">●</span> 
+          <span id="current-model-name">gemini-2.5-flash</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <button class="cyber-btn-icon" id="clear-chat" title="Limpiar Terminal"><i class="fas fa-trash-alt"></i></button>
+      </div>
+    </header>
+
+    <!-- Área de Chat -->
+    <div class="chat-viewport" id="chat-container">
+      <div class="welcome-screen text-center mt-5" id="welcome-screen">
+        <div class="cyber-logo-anim mb-3" style="font-size: 3rem; color: var(--accent-cyan);">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h1>Bienvenido al Futuro</h1>
+        <p>Conexión neuronal establecida. Terminal de Analítica Senior Lista.</p>
+      </div>
+    </div>
+
+    <!-- Área de Entrada -->
+    <footer class="cyber-footer">
+      <div id="file-indicator" class="d-none text-info mb-2" style="font-size: 0.8rem;"><i class="fas fa-file"></i> Archivo cargado en memoria</div>
+      <div class="input-wrapper">
+        <div class="action-buttons">
+          <button class="action-btn cyber-btn-icon me-2" id="voice-btn" title="Dictado por Voz"><i class="fas fa-microphone"></i></button>
+          <label class="action-btn cyber-btn-icon me-2" title="Subir Archivo Excel/PDF" style="display:flex; align-items:center; justify-content:center; cursor:pointer;">
+            <i class="fas fa-paperclip"></i>
+            <input type="file" id="file-input" hidden accept=".xlsx, .xls, .pdf">
+          </label>
+        </div>
+        <textarea id="user-input" placeholder="Escribe tu comando o adjunta un archivo..." rows="1" style="flex-grow:1; background:transparent; border:none; color:#fff; outline:none; resize:none;"></textarea>
+        <button class="send-btn ms-2" id="send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<!-- Librerías Externas -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<!-- Añadida librería para leer PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- Script Principal Corregido -->
+<script type="module" src="main.js"></script>
+</body>
+</html>
